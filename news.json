@@ -2,24 +2,24 @@
   "items": [
     {
       "id": "test-pizza-001",
-      "title": "Pizza Night Protocol Activated",
+      "title": "Test Alert",
       "publishedAt": "2026-02-25T18:30:00Z",
-      "content": "The cafeteria drone now serves extra-cheesy pizza slices after 6 PM. Report any missing pepperoni to Support Bot 7.",
-      "category": "Food"
+      "content": "ALERT",
+      "category": "Alert"
     },
     {
       "id": "test-sushi-001",
-      "title": "Sushi Station Reopened",
+      "title": "Test Post 2",
       "publishedAt": "2026-02-24T16:00:00Z",
-      "content": "Fresh salmon rolls and veggie maki are back in rotation. Chopstick physics have been patched for improved handling.",
-      "category": "Events"
+      "content": "This is another update for the news feed with more content!",
+      "category": "Update"
     },
     {
       "id": "test-burrito-001",
-      "title": "Burrito Build-Off This Weekend",
+      "title": "Test Post 1",
       "publishedAt": "2026-02-23T20:15:00Z",
-      "content": "Join the kitchen arena and craft your best burrito combo. Bonus points awarded for spicy bean stack stability.",
-      "category": "Community"
+      "content": "This is an update for the news feed!",
+      "category": "Update"
     }
   ]
 }
