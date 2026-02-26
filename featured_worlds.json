@@ -2,6 +2,9 @@
   "weekLabel": "",
   "worlds": [
     {
+      "builtInGuid": "e196f1e42a1692a48a621563aa8527e8"
+    },
+    {
       "modId": 5170536
     },
     {
@@ -9,9 +12,6 @@
     },
     {
       "modId": 5607889
-    },
-    {
-      "builtInGuid": "e196f1e42a1692a48a621563aa8527e8"
     },
     {
       "modId": 5188761
