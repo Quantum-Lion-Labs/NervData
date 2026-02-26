@@ -1,0 +1,57 @@
+name: Deploy NervBox Game Data
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "featured_worlds.json"
+      - "news.json"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON
+        run: |
+          jq empty featured_worlds.json
+          jq empty news.json
+
+      - name: Build static artifact
+        run: |
+          mkdir -p dist
+          cp featured_worlds.json dist/featured_worlds.json
+          cp news.json dist/news.json
+          VERSION_ID="$(cat featured_worlds.json news.json | sha256sum | cut -c1-10)"
+          printf "%s" "$VERSION_ID" > dist/version
+          touch dist/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
